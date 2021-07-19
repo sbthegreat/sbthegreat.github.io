@@ -1472,6 +1472,23 @@ $(document).ready(function () {
 	$(".set-selector").change();
 });
 
+$(".mode").change(function () {
+	var params = new URLSearchParams(window.location.search);
+	params.set('mode', $(this).attr("id"));
+	var mode = params.get('mode');
+	if (mode === 'onevsone') {
+		window.location.replace('index' + linkExtension + '?' + params);
+	} else if (mode === 'onevsall') {
+		window.location.replace('honkalculate' + linkExtension + '?' + params);
+	} else {
+		window.location.replace('honkalculate' + linkExtension + '?' + params);
+	}
+});
+
+$(".notation").change(function () {
+	performCalculations();
+});
+
 /******************/
 /*  EV OPTIMIZER  */
 /******************/
