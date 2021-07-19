@@ -1473,29 +1473,20 @@ $(document).ready(function () {
 });
 
 $(".mode").change(function () {
-	var params = new URLSearchParams(window.location.search);
-	params.set('mode', $(this).attr("id"));
-	var mode = params.get('mode');
-	if (mode === 'onevsone') {
-		window.location.replace('index' + linkExtension + '?' + params);
-	} else if (mode === 'onevsall') {
-		window.location.replace('honkalculate' + linkExtension + '?' + params);
+	if ($("#onevsone").prop("checked")) {
+		var params = new URLSearchParams(window.location.search);
+		params.delete('mode');
+		params = '' + params;
+		window.location.replace('index' + linkExtension + (params.length ? '?' + params : ''));
+	} else if ($("#onevsall").prop("checked")) {
+		var params = new URLSearchParams(window.location.search);
+		params.delete('mode');
+		params = '' + params;
+		window.location.replace('honkalculate' + linkExtension + (params.length ? '?' + params : ''));
 	} else {
+		var params = new URLSearchParams(window.location.search);
+		params.set('mode', $(this).attr("id"));
 		window.location.replace('honkalculate' + linkExtension + '?' + params);
-	}
-});
-
-$(document).ready(function () {
-	var params = new URLSearchParams(window.location.search);
-	var mode = params.get('mode');
-	if (mode) {
-		if (mode === 'onevsone') {
-			window.location.replace('index' + linkExtension + '?' + params);
-		} else if (mode === 'onevsall') {
-			window.location.replace('honkalculate' + linkExtension + '?' + params);
-		} else {
-			window.location.replace('honkalculate' + linkExtension + '?' + params);
-		}
 	}
 });
 
