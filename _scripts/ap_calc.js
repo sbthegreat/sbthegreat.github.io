@@ -1485,8 +1485,18 @@ $(".mode").change(function () {
 	}
 });
 
-$(".notation").change(function () {
-	performCalculations();
+$(document).ready(function () {
+	var params = new URLSearchParams(window.location.search);
+	var mode = params.get('mode');
+	if (mode) {
+		if (mode === 'onevsone') {
+			window.location.replace('index' + linkExtension + '?' + params);
+		} else if (mode === 'onevsall') {
+			window.location.replace('honkalculate' + linkExtension + '?' + params);
+		} else {
+			window.location.replace('honkalculate' + linkExtension + '?' + params);
+		}
+	}
 });
 
 /******************/
