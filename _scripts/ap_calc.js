@@ -1473,7 +1473,7 @@ $(document).ready(function () {
 });
 
 $("#mode").change(function () {
-	document.getElementById("test").innerHTML="am i here??";
+	
 	if ($("#onevsone").prop("checked")) {
 		var params = new URLSearchParams(window.location.search);
 		params.delete('mode');
