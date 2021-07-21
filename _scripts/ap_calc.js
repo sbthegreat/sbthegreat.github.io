@@ -1472,7 +1472,7 @@ $(document).ready(function () {
 	$(".set-selector").change();
 });
 
-$(".mode").change(function () {
+$("#mode").change(function () {
 	document.getElementById("test").innerHTML="am i here??";
 	if ($("#onevsone").prop("checked")) {
 		var params = new URLSearchParams(window.location.search);
