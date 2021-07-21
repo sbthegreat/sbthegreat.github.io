@@ -1386,7 +1386,7 @@ function getSelectOptions(arr, sort, defaultIdx) {
 }
 
 $(document).ready(function () {
-	$("#" + mode).prop("checked", true);
+	//$("#" + mode).prop("checked", true);
 	if (localStorage.getItem("selectedGen") != null) {
 		switch (localStorage.getItem("selectedGen") + "") {
 
