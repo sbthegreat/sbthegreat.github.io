@@ -1480,6 +1480,7 @@ $("#mode").change(function () {
 		params = '' + params;
 		window.location.replace('index' + linkExtension + (params.length ? '?' + params : ''));
 	} else if ($("#onevsall").prop("checked")) {
+		document.getElementById("test").innerHTML="it has been checked";
 		var params = new URLSearchParams(window.location.search);
 		params.delete('mode');
 		params = '' + params;
